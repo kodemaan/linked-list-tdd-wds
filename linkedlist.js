@@ -20,6 +20,21 @@ class LinkedList {
         return current
     }
 
+    removeHead() {
+        this.head = this.head.next
+        this.length--
+    }
+
+    removeAtIndex(index) {
+        if (index === 0) return this.removeHead()
+
+        const prev = this.getByIndex(index - 1)
+        if (prev === null) return null
+
+        prev.next = prev.next.next 
+        this.length--
+    }
+
     insertAtIndex(index, value) {
         if (index === 0) return this.insertAtHead(value)
 
